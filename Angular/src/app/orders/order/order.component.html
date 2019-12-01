@@ -1,0 +1,53 @@
+<form #form="ngForm" autocomplete="off">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Order No.</label>
+        <input name="OrderNo" #OrderNo="ngModel" [(ngModel)]="service.formData.OrderNo" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Customer</label>
+        <label>
+          <select name="CustomerID" #CustomerID="ngModel" [(ngModel)]="service.formData.CustomerID" class="form-control">
+            <option value="0">-Select-</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Payment Method</label>
+          <label>
+            <select name="PMethod" #PMethod="ngModel" [(ngModel)]="service.formData.PMethod" class="form-control">
+              <option value="">-Select-</option>
+              <option value="Cash">Cash</option>
+              <option value="Card">Card</option>
+
+            </select>
+          </label>
+        </div>
+          <div class="form-group">
+              <label>GrandTotal</label>
+              <input name="GTotal" #GTotal="ngModel" [(ngModel)]="service.formData.GTotal" class="form-control">
+            </div>
+    </div>
+    <tabel class='table table-borderless'>
+      <thead class="thead-light">
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of service.orderItems">
+          <td>{{ item.}}</td>
+
+        </tr>
+      </tbody>
+    </tabel>
+    <div class="form-group pt-5">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i>Submit</button>
+    </div>
+  </div>
+</form>
